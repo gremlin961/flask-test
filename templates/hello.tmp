@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+   <HEAD>
+      <TITLE>
+         Docker Flask Demo
+      </TITLE>
+   </HEAD>
+<BODY>
+   <H1>This is a test site using Flask!</H1>
+   <P>This is my demonstration of a distributed application running on webserver replaceme.</P>
+   <P></P>
+   <P>Here is a picture of Moby. Enjoy!!!</P>
+   <P><img src="{{ url_for('static',filename="image1.png")}}"></P>
+</BODY>
+</HTML>

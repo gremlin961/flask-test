@@ -1,0 +1,21 @@
+version: "3"
+services:
+  flask:
+    image: ${CI_DTR}/${CI_REPO_ROOT}/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}
+    ports:
+      - 8080
+    networks:
+      - prod
+    deploy:
+      labels:
+        com.docker.ucp.mesh.http.<mesh_uid>: internal_port=8080,external_route=http://flask-${CI_BUILD_REF_NAME}.richard.dtcntr.net
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+networks:
+  prod:
+    external: true
